@@ -1,4 +1,5 @@
 {
+    // 一部のアクション時に自動で整形
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file",
@@ -7,4 +8,6 @@
     "cSpell.ignoreRegExpList": [
         "[０-９Ａ-Ｚａ-ｚぁ-んァ-ヶ亜-熙纊-黑]+"
     ],
+    // ブラケットに色付け
+    "editor.bracketPairColorization.enabled": true
 }
