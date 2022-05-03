@@ -1,3 +1,3 @@
 FROM golang:alpine
 RUN apk update && apk add make
-COPY . /go/src/interface-realize
+# COPY . /go/src/interface-realize
