@@ -1,8 +1,57 @@
 version: 2.1
-jobs:
-  build:
+executors:
+  default:
+    working_directory: /go/src
     docker:
-      - image: circleci/golang:latest
+      - image: golang:latest
+
+jobs:
+  setup:
+    executor:
+      name: default
     steps:
       - checkout
-      - run: echo "hello world"
+      - run:
+          name: Install dependencies
+          command: go mod tidy
+
+  lint:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - run: 
+          name: Lint
+          command: staticcheck ./...
+
+  build:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - run: 
+          name: Build
+          command: go build -o bin/interface-realize ./main.go
+
+  test:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - run: 
+          name: Test
+          command: npm run test:unit
+
+workflows:
+  pull-request:
+    jobs:
+      - setup
+      - lint:
+          requires:
+            - setup
+      - build:
+          requires:
+            - lint
+      - test:
+          requires:
+            - build
