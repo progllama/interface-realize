@@ -18,3 +18,12 @@ services:
         target: /go/src/interface-realize
     working_dir: /go/src/interface-realize
     command: make test
+
+  develop:
+    build: .
+    volumes:
+      - type: bind
+        source: .
+        target: /go/src/interface-realize
+    working_dir: /go/src/interface-realize
+    tty: true
