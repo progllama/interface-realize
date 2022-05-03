@@ -1,22 +1,11 @@
 version: '3.8'
 
 services:
-  dev-env:
+  builder:
     build: .
-    tty: true
     volumes:
       - type: bind
-        source: .
-        target: /go/src/interface-realize
-      - type: volume
-        source: packages
-        target: /go/pkg/
-      - type: bind
-        source: ~/.ssh
-        target: /root/.ssh
-        read_only: true
-
+        source: ./bin
+        target: /go/src/interface-realize/bin
     working_dir: /go/src/interface-realize
-
-volumes:
-  packages:
+    command: make build

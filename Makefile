@@ -1,5 +1,3 @@
-
 .PHONY: build
-
 build:
-	go build -o ./bin main.go
+	go build -o ./bin/interface-realize main.go
