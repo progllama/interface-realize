@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   dev-env:
-    image: golang:alpine
+    build: .
     tty: true
     volumes:
       - type: bind
@@ -11,6 +11,10 @@ services:
       - type: volume
         source: packages
         target: /go/pkg/
+      - type: bind
+        source: ~/.ssh
+        target: /root/.ssh
+        read_only: true
 
     working_dir: /go/src/interface-realize
 
