@@ -1,4 +1,4 @@
-package interfacerealize
+package main
 
 import "fmt"
 
