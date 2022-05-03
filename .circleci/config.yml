@@ -5,6 +5,13 @@ executors:
     docker:
       - image: golang:latest
 
+commands:
+  install-staticcheck:
+    steps:
+      - restore_cache:
+          name: install staticcheck
+          key: go install honnef.co/go/tools/cmd/staticcheck@latest
+
 jobs:
   setup:
     executor:
@@ -40,7 +47,7 @@ jobs:
       - checkout
       - run: 
           name: Test
-          command: npm run test:unit
+          command: go test -v -cover -bench . ./...
 
 workflows:
   pull-request:
