@@ -7,6 +7,10 @@
         "pkief.material-icon-theme",
         "saikou9901.evilinspector",
         "oderwat.indent-rainbow",
-        "Gruntfuggly.todo-tree"
+        "gruntfuggly.todo-tree",
+        "ms-azuretools.vscode-docker",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "christian-kohler.path-intellisense"
     ]
 }
