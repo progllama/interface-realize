@@ -27,6 +27,7 @@ jobs:
       name: default
     steps:
       - checkout
+      - install-staticcheck
       - run: 
           name: Lint
           command: staticcheck ./...
