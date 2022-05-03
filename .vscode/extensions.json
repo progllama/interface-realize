@@ -4,6 +4,9 @@
         "golang.go",
         "ms-ceintl.vscode-language-pack-ja",
         "zainchen.json",
-        "PKief.material-icon-theme"
+        "pkief.material-icon-theme",
+        "saikou9901.evilinspector",
+        "oderwat.indent-rainbow",
+        "Gruntfuggly.todo-tree"
     ]
 }
