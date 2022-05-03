@@ -1,3 +1,15 @@
+### 簡易ルール(should use lint)
+# 1. 大まかな設定の種類(OS, IDE, 言語)などの設定には#を３つ
+# 2. より細かな詳細(macOS, Windows, unix)には#を2つ
+# 3. 普通のコメントには#を１つ
+# 4. 設定を引用した際にはFrom: で参照元を記載する。
+# 5. １区切り描き終わったら１つ改行を入れる。
+# 6. 設定している項目が変わる時には2つ改行を入れる。
+
+
+### OS
+## macOS
+## From: https://github.com/github/gitignore/blob/main/Global/macOS.gitignore
 # General
 .DS_Store
 .AppleDouble
@@ -24,3 +36,45 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+
+### IDE
+## VSCode
+## From: https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+
+### Language
+## Golang
+## From: https://github.com/github/gitignore/blob/main/Go.gitignore
+# If you prefer the allow list template instead of the deny list, see community template:
+# https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Go workspace file
+go.work
