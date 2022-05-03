@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  dev-env:
+    image: golang:alpine
+    tty: true
+    volumes:
+      - type: bind
+        source: .
+        target: /go/src/interface-realize
+      - type: volume
+        source: packages
+        target: /go/pkg/
+
+    working_dir: /go/src/interface-realize
+
+volumes:
+  packages:
