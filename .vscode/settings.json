@@ -23,7 +23,7 @@
         // === Experimental Settings ===
         // If true, it enables the use of the staticcheck.io analyzers.
         // Warning: This will significantly increase memory usage.
-        "staticcheck": false,
+        "staticcheck": true,
         // If false, indicates that the user does not want documentation with completion results.
         "completionDocumentation": true,
         // If true, the completion engine is allowed to make suggestions for packages that you do not currently import.
