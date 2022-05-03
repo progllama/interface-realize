@@ -2,5 +2,9 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file",
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
+    // Code Spell Checkerでは日本語をサポートしていないので無視するように設定しています。
+    "cSpell.ignoreRegExpList": [
+        "[０-９Ａ-Ｚａ-ｚぁ-んァ-ヶ亜-熙纊-黑]+"
+    ],
 }
