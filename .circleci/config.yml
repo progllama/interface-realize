@@ -10,7 +10,7 @@ commands:
     steps:
       - restore_cache:
           name: install staticcheck
-          key: /usr/local/go/cmd/go install honnef.co/go/tools/cmd/staticcheck@latest
+          key: /usr/local/go/bin/go install honnef.co/go/tools/cmd/staticcheck@latest
 
 jobs:
   setup:
