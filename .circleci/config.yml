@@ -51,7 +51,7 @@ jobs:
           command: go test -v -cover -bench . ./...
 
 workflows:
-  pull-request:
+  push:
     jobs:
       - setup
       - lint:
