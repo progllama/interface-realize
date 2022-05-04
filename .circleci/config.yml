@@ -1,0 +1,65 @@
+version: 2.1
+executors:
+  default:
+    working_directory: /go/src
+    docker:
+      - image: golang:latest
+
+commands:
+  install-staticcheck:
+    description: "staticcheckのインストール"
+    steps:
+      - run: go install honnef.co/go/tools/cmd/staticcheck@latest
+
+jobs:
+  setup:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - install-staticcheck
+      - run:
+          name: Install dependencies
+          command: go mod tidy
+
+  lint:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - install-staticcheck
+      - run: 
+          name: Lint
+          command: staticcheck ./...
+
+  build:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - run: 
+          name: Build
+          command: go build -o bin/interface-realize ./main.go
+
+  test:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - run: 
+          name: Test
+          command: go test -v -cover -bench . ./...
+
+workflows:
+  pull-request:
+    jobs:
+      - setup
+      - lint:
+          requires:
+            - setup
+      - build:
+          requires:
+            - lint
+      - test:
+          requires:
+            - build
