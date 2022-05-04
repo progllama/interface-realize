@@ -7,10 +7,9 @@ executors:
 
 commands:
   install-staticcheck:
+    description: "staticcheckのインストール"
     steps:
-      - restore_cache:
-          name: install staticcheck
-          key: /usr/local/go/bin/go install honnef.co/go/tools/cmd/staticcheck@latest
+      - run: /usr/local/go/bin/go install honnef.co/go/tools/cmd/staticcheck@latest
 
 jobs:
   setup:
@@ -18,6 +17,7 @@ jobs:
       name: default
     steps:
       - checkout
+      - install-staticcheck
       - run:
           name: Install dependencies
           command: go mod tidy
